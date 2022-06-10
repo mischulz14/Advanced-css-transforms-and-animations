@@ -1,0 +1,180 @@
+.container {
+  width: 30rem;
+  height: 80vh;
+  margin: 3rem auto;
+  background-color: lightblue;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 0 auto;
+  align-items: center;
+  justify-items: center;
+}
+
+/* =======================
+SECTION === 'normal spinner' === SECTION
+======================= */
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 12px solid rgb(33, 99, 121);
+  border-top: 12px solid red;
+  /* border-right: 12px solid red; */
+  /* border-bottom: 12px solid red; */
+  border-radius: 50%;
+  animation: rotateSpinner 1s linear infinite;
+}
+
+/* =======================
+SECTION === 'growing circle spinner' === SECTION
+======================= */
+.growing-circle-spinner {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: rgb(33, 99, 121);
+  animation: grow 1s linear infinite;
+}
+
+/* =======================
+SECTION === 'loading dots' === SECTION
+======================= */
+.dot-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: white;
+  border-radius: 50%;
+  animation: grow2 1s ease-in-out infinite;
+}
+
+.dot-1 {
+  animation-delay: 0.2s;
+}
+
+.dot-2 {
+  animation-delay: 0.4s;
+}
+
+.dot-3 {
+  animation-delay: 0.6s;
+}
+
+/* =======================
+SECTION === 'heartbit' === SECTION
+======================= */
+
+.heartbit {
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  position: relative;
+  transform: rotate(135deg);
+  animation: grow3 1s linear infinite;
+}
+
+.heartbit::before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  position: absolute;
+  left: -1rem;
+  border-radius: 50%;
+}
+
+.heartbit::after {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  position: absolute;
+  top: 1rem;
+  border-radius: 50%;
+}
+
+/* =======================
+SECTION === 'rotating squares' === SECTION
+======================= */
+
+.rotating-square-1 {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+}
+
+.rotating-square-1::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 3px solid white;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  animation: rotate1 1s linear infinite;
+}
+
+.rotating-square-1::after {
+  content: "";
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid white;
+  position: absolute;
+  top: 0;
+  animation: rotate2 1s linear infinite;
+}
+
+@keyframes rotateSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.2);
+  }
+}
+
+@keyframes grow2 {
+  0%,
+  100% {
+    transform: scale(0.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes grow3 {
+  0%,
+  100% {
+    transform: scale(0.7) rotate(135deg);
+  }
+  50% {
+    transform: scale(1) rotate(135deg);
+  }
+}
+
+@keyframes rotate1 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate2 {
+  to {
+    transform: rotate(-360deg);
+  }
+}
